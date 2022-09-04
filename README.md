@@ -1,4 +1,4 @@
-# work_with_studying
+# sandbox_nextjs_rails
 
 
 ## use docker
