@@ -8,6 +8,7 @@ gem "cssbundling-rails"
 gem "pg", "~> 1.4.3"
 gem "puma", "~> 5.6.5"
 gem "rails", "~> 7.0.3", ">= 7.0.3.1"
+gem "rack-cors"
 gem "tzinfo-data", platforms: %i[ mingw mswin x64_mingw jruby ]
 
 # Build JSON APIs with ease [https://github.com/rails/jbuilder]
@@ -25,9 +26,6 @@ gem "tzinfo-data", platforms: %i[ mingw mswin x64_mingw jruby ]
 
 # Use Active Storage variants [https://guides.rubyonrails.org/active_storage_overview.html#transforming-images]
 # gem "image_processing", "~> 1.2"
-
-# Use Rack CORS for handling Cross-Origin Resource Sharing (CORS), making cross-origin AJAX possible
-# gem "rack-cors"
 
 group :development, :test, :staging do
   gem "factory_bot_rails"
