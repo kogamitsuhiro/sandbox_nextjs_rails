@@ -1,2 +1,5 @@
 # vscode metadata
 .vscode
+
+# local env files
+.env*.local
