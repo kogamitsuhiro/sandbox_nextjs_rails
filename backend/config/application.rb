@@ -12,5 +12,6 @@ module App
     config.generators do |g|
       g.test_framework :rspec, fixture: false
     end
+    config.autoload_paths << Rails.root.join("lib")
   end
 end
