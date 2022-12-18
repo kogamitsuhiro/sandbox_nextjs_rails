@@ -2,6 +2,20 @@ inherit_from: .rubocop_todo.yml
 
 AllCops:
   TargetRubyVersion: 3.1.1
+  Exclude:
+    - "bin/**/*"
+    - "db/schema.rb"
+    - "db/migrate/*"
+    - "vender/**/*"
 
 Documentation:
+  Enabled: false
+
+Bundler/OrderedGems:
+  Enabled: true
+
+ClassAndModuleChildren:
+  Enabled: false
+
+Metrics/MethodLength:
   Enabled: false
