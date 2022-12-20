@@ -1,0 +1,12 @@
+@import './../../styles/_variables';
+
+.footer {
+  color: $white;
+  background-color: $deep-gray;
+  text-align: center;
+  line-height: 30px;
+
+  a {
+    color: $white;
+  }
+}

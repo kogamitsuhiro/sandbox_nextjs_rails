@@ -8,7 +8,7 @@ const Header = (): React.ReactElement => {
   const { user } = useUser();
 
   return (
-    <div className={styles.header}>
+    <header className={styles.header}>
       <nav>
         <ul>
           <li>
@@ -43,7 +43,7 @@ const Header = (): React.ReactElement => {
           )}
         </ul>
       </nav>
-    </div>
+    </header>
   );
 };
 
