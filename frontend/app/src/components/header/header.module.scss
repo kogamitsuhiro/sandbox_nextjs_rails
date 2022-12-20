@@ -1,0 +1,41 @@
+@import './../../styles/_variables';
+
+.header {
+  height: 50px;
+  padding: 0.2rem;
+  color: $white;
+  background-color: $black;
+
+  nav {
+    max-width: 42rem;
+    margin: 1.5rem auto;
+  }
+
+  ul {
+    display: flex;
+    list-style: none;
+    margin-left: 0;
+    padding-left: 0;
+  }
+
+  li {
+    margin-right: 1rem;
+  }
+
+  li:last-child {
+    margin-right: auto;
+  }
+
+  a {
+    color: $white;
+    text-decoration: none;
+  }
+
+  button {
+    font-size: 1rem;
+    color: $white;
+    cursor: pointer;
+    border: none;
+    background: none;
+  }
+}
