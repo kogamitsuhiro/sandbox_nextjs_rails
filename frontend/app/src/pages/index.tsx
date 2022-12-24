@@ -1,12 +1,16 @@
-import { useUser } from '@auth0/nextjs-auth0/client';
+import { useAuth0 } from '@auth0/auth0-react';
 
 import Layout from '../components/layouts/basic';
 
 export default function Index() {
-  const { user } = useUser();
-  if (user) {
-    return <Layout>Welcome {user.name}!</Layout>;
-  } else {
-    return <Layout>Please login</Layout>;
-  }
+  const { user, isAuthenticated } = useAuth0();
+  return (
+    <Layout>
+      <h1>Homeページ</h1>
+      <div>
+        <p>Welcome {isAuthenticated ? user.name : 'ゲスト'}!</p>
+        <p>hoge</p>
+      </div>
+    </Layout>
+  );
 }

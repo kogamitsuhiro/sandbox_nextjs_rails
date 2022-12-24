@@ -1,14 +1,14 @@
-import { withPageAuthRequired } from '@auth0/nextjs-auth0/client';
+import axios from 'axios';
 import Link from 'next/link';
 import React from 'react';
 import useSWR from 'swr';
 
 import Layout from '../../components/layouts/basic';
 
-const fetcher = async (url: string) => fetch(url).then((res) => res.json());
+const fetcher = async (url: string) => await axios.get(url).then((res) => res.data);
 
-export default withPageAuthRequired(function Posts({}) {
-  const { data, error } = useSWR('/api/posts', fetcher);
+export default function Posts({}) {
+  const { data, error } = useSWR('http://localhost:3000/api/v1/posts', fetcher);
   if (error) return <div>oops... {error.message}</div>;
   if (data === undefined) return <div>Loading...</div>;
 
@@ -25,4 +25,4 @@ export default withPageAuthRequired(function Posts({}) {
       </Link>
     </Layout>
   );
-});
+}

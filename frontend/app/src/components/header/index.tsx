@@ -1,11 +1,11 @@
-import { useUser } from '@auth0/nextjs-auth0/client';
+import { useAuth0 } from '@auth0/auth0-react';
 import Link from 'next/link';
 import React from 'react';
 
 import styles from './header.module.scss';
 
 const Header = (): React.ReactElement => {
-  const { user } = useUser();
+  const { isAuthenticated, loginWithRedirect, logout } = useAuth0();
 
   return (
     <header className={styles.header}>
@@ -21,7 +21,7 @@ const Header = (): React.ReactElement => {
               <a>About</a>
             </Link>
           </li>
-          {user ? (
+          {isAuthenticated ? (
             <>
               <li>
                 <Link href='/profile'>
@@ -34,16 +34,19 @@ const Header = (): React.ReactElement => {
                 </Link>
               </li>
               <li>
-                <Link href='/api/auth/logout' data-testid='logout'>
-                  Logout
-                </Link>
+                <button
+                  onClick={() => logout({ returnTo: window.location.origin })}
+                  data-testid='logout'
+                >
+                  Log Out
+                </button>
               </li>
             </>
           ) : (
             <li>
-              <Link href='/api/auth/login' data-testid='login'>
-                Login
-              </Link>
+              <button onClick={() => loginWithRedirect()} data-testid='login'>
+                Log In
+              </button>
             </li>
           )}
         </ul>
