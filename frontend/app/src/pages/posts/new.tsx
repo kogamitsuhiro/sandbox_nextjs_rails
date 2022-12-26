@@ -2,9 +2,10 @@ import { useAuth0 } from '@auth0/auth0-react';
 import axios from 'axios';
 import React, { useEffect, useState } from 'react';
 
+import withPageAuthRequired from '../../components/auth/withPageAuthRequired';
 import Layout from '../../components/layouts/basic';
 
-export default function New({}) {
+const New = () => {
   const { getAccessTokenSilently } = useAuth0();
   const [title, setTitle] = useState<string>('');
   const [body, setBody] = useState<string>('');
@@ -73,4 +74,6 @@ export default function New({}) {
       <button onClick={onClick}>新規投稿</button>
     </Layout>
   );
-}
+};
+
+export default withPageAuthRequired(New);

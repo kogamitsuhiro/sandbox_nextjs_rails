@@ -3,11 +3,12 @@ import Link from 'next/link';
 import React from 'react';
 import useSWR from 'swr';
 
+import withPageAuthRequired from '../../components/auth/withPageAuthRequired';
 import Layout from '../../components/layouts/basic';
 
 const fetcher = async (url: string) => await axios.get(url).then((res) => res.data);
 
-export default function Posts({}) {
+const Posts = () => {
   const { data, error } = useSWR('http://localhost:3000/api/v1/posts', fetcher);
   if (error) return <div>oops... {error.message}</div>;
   if (data === undefined) return <div>Loading...</div>;
@@ -25,4 +26,6 @@ export default function Posts({}) {
       </Link>
     </Layout>
   );
-}
+};
+
+export default withPageAuthRequired(Posts);
